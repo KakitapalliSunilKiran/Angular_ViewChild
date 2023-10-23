@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChildcomponentComponent } from './childcomponent/childcomponent.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ export class AppComponent {
   @ViewChild('dobInput') dateofbirth: ElementRef | any;
   @ViewChild('ageInput') age: ElementRef | any;
 
+  @ViewChild(ChildcomponentComponent,{static:true}) sunilvich: ChildcomponentComponent | undefined;
+
   //Event
   //HTMLInputElement
   //ElementRef
@@ -21,5 +24,12 @@ export class AppComponent {
     this.age.nativeElement.value=age;
 
   }
+
+   triggerView(){
+    console.log('check 1');
+     this.sunilvich?.SayHello();
+     console.log('check 2');
+   }
+
 
 }
